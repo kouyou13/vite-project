@@ -13,22 +13,23 @@
           lastName : "",
           isMember : true,
         },
-        users : [{
-          firstName : "John",
-          lastName : "Smith",
-          isMember : true,
-        },
-        {
-          firstName : "Taro",
-          lastName : "Shinjuku",
-          isMember : false,
-        },
-        {
-          firstName : "Hanako",
-          lastName : "Shibuya",
-          isMember : true,
-        }
-      ]
+        users : [
+          {
+            firstName : "John",
+            lastName : "Smith",
+            isMember : true,
+          },
+          {
+            firstName : "Taro",
+            lastName : "Shinjuku",
+            isMember : false,
+          },
+          {
+            firstName : "Hanako",
+            lastName : "Shibuya",
+            isMember : true,
+          }
+        ]
       }
     },
     computed: {
