@@ -8,11 +8,22 @@
         //   red : true,
         // }
         isRed : true,
-        user : {
+        users : [{
           firstName : "John",
           lastName : "Smith",
           isMember : true,
+        },
+        {
+          firstName : "Taro",
+          lastName : "Shinjuku",
+          isMember : false,
+        },
+        {
+          firstName : "Hanako",
+          lastName : "Shibuya",
+          isMember : true,
         }
+      ]
       }
     },
     computed: {
@@ -27,13 +38,18 @@
     <!-- <h1 v-bind:title="message" v-bind:class="textStatus">{{ title }}</h1> -->
     <h1 :title="message" :class="{red : isRed}">{{ title }}</h1>
     <h2 :title="123 * 3" :class="{red : !true}">{{ 'ようこそ'+'Vueの世界へ' }}</h2>
+    <h2>ユーザーデータ</h2>
     <!-- <h3>{{ user.firstName + ' ' + user.lastName + "さんのデータ" }}</h3> -->
-    <h3>{{ fullName}}さんのデータ</h3>
-    <!-- <p>Name:{{ user.firstName + ' ' + user.lastName }}</p> -->
-    <p>Name: {{ fullName }}</p>
-    <!-- v-bind：属性の変更 title←messageを入れる 動的にclass要素をつける -->
-    <!-- :⚪︎⚪︎⚪︎でv-bindがつけられる -->
-    <p v-if="user.isMember">メンバーです</p>
+    <div v-for="user in users">
+      <!-- <h3>{{ fullName}}さんのデータ</h3> -->
+      <p>Name:{{ user.firstName + ' ' + user.lastName }}</p>
+      <!-- <p>Name: {{ fullName }}</p> -->
+      <!-- v-bind：属性の変更 title←messageを入れる 動的にclass要素をつける -->
+      <!-- :⚪︎⚪︎⚪︎でv-bindがつけられる -->
+      <p v-if="user.isMember">メンバーです</p>
+      <p v-else>メンバーではありません</p>
+      <!-- isMemberがtrueなら上の処理 falseなら下の処理 -->
+    </div>
 </template>
 
 <style>
