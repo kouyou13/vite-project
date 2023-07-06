@@ -8,6 +8,11 @@
         //   red : true,
         // }
         isRed : true,
+        input : {
+          firstName : "",
+          lastName : "",
+          isMember : true,
+        },
         users : [{
           firstName : "John",
           lastName : "Smith",
@@ -30,7 +35,17 @@
       fullName(){
         return this.user.firstName + ' ' + this.user.lastName;
       }
-    }
+    },
+    methods : {
+      addUser(){
+        this.users.push(this.input)
+        this.input = {
+          firstName : '',
+          lastName : '',
+          isMember : true,
+        }
+      },
+    },
   }
 </script>
 
@@ -38,6 +53,11 @@
     <!-- <h1 v-bind:title="message" v-bind:class="textStatus">{{ title }}</h1> -->
     <h1 :title="message" :class="{red : isRed}">{{ title }}</h1>
     <h2 :title="123 * 3" :class="{red : !true}">{{ 'ようこそ'+'Vueの世界へ' }}</h2>
+    <input type="text" v-model="input.firstName" />
+    <input type="text" v-model="input.lastName" />
+    <input type="checkbox" v-model="input.isMember" />
+    <button v-on:click="addUser">ユーザー追加</button>
+    <!-- ボタンを押した時に処理を行う -->
     <h2>ユーザーデータ</h2>
     <!-- <h3>{{ user.firstName + ' ' + user.lastName + "さんのデータ" }}</h3> -->
     <div v-for="user in users">
